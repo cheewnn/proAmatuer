@@ -1,5 +1,5 @@
 # proAmatuer
-GET1033 Final Project
+**GET1033 Final Project**
 
 The documentation for our project could be found here:https://github.com/cheewnn/proAmatuer/wiki
 
