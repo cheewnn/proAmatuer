@@ -78,6 +78,8 @@ public class AnswerCollision : MonoBehaviour
             newrightanswer.GetComponent<Collider>().enabled = false;
             newwronganswer2.GetComponent<Collider>().enabled = false;
 
+            cummulativedsc = cummulativedsc - dsc;
+
             GameObject.Find("Lifesystem").GetComponent<Lives>().WrongPoints++;
             RandomGenerate();
 
@@ -92,6 +94,9 @@ public class AnswerCollision : MonoBehaviour
             //prevent player from colliding with other ans
             newrightanswer.GetComponent<Collider>().enabled = false;
             newwronganswer1.GetComponent<Collider>().enabled = false;
+
+            cummulativedsc = cummulativedsc - dsc;
+
 
             GameObject.Find("Lifesystem").GetComponent<Lives>().WrongPoints++;
             RandomGenerate();
@@ -115,7 +120,10 @@ public class AnswerCollision : MonoBehaviour
         if (collisionInfo.collider.tag == "InvisibleWall")
         {
             GameObject.Find("Lifesystem").GetComponent<Lives>().Skipped++;
-            if(GameObject.Find("Lifesystem").GetComponent<Lives>().Skipped> lives)
+
+            cummulativedsc = cummulativedsc - dsc;
+
+            if (GameObject.Find("Lifesystem").GetComponent<Lives>().Skipped> lives)
             {
                 movement.enabled = false;
                 FindObjectOfType<GameMannager>().EndGame();
